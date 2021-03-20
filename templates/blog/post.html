@@ -1,0 +1,11 @@
+{% extends 'blogbase.html' %}
+
+{% block title %}
+{{post.title}}
+{% endblock title %}
+
+{% block body %}
+<div class="title">{{post.title}}</div>
+<div class="date">{{post.author}}</div>
+<div class="content">{{post.content}}</div>
+{% endblock body %}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'logo1.png' %}" type="image/icon type">
+    <title>{% block title %}{% endblock title %} | Lebenism</title>
+
+    <script>
+        function validateForm() {
+            var x = document.forms["signupform"]["email"].value;
+            if (x == "" || x == null) {
+                alert("Please type your email!");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="dabba" id="left">
+            <div id="logo">
+                {% load static %}
+                <img src="{% static 'logo1.png' %}" alt="logo">
+            </div>
+            <div class="index">
+                <div class="text indexing" id="index-1"><a href="/blog/">Home</a></div>
+                <div class="text indexing" id="index-2">Categories</div>
+                <div class="text indexing" id="index-3">Most Visited</div>
+                <div class="text indexing" id="index-4"><a href="/">My Website</a></div>
+                <div class="text indexing" id="index-5">Contact</div>
+            </div>
+            <div class="aboutme">
+                <div class="img"></div>
+                <div class="name text">Aashutosh Sharma</div>
+                <div class="mydescript text">Writes on matters related to national security, media management, politics.
+                    Dharmo Rakshati Rakshitah!</div>
+            </div>
+        </div>
+        <div class="dabba" id="center">
+            <div class="heading" id="heading">Leben's Blog</div>
+            <div class="flexbox">
+                {% block body %} {% endblock body %}
+            </div>
+        </div>
+        <div class="dabba" id="right">
+            <form action="/blog/" name="signupform" onsubmit="return validateForm()" method="post" required>
+                {% csrf_token %}
+                <div id="signup-form">
+                    <div class="text" id="signup">Sign up</div>
+                    <div class="text" id="signupdesc">Sign up to receive an update whenever I post something. Also
+                        notify if you want to receive weekly newsletters.</div>
+                    <div class="input">
+                        <label for="email" hidden>Email</label>
+                        <input class="text" type="email" id="email" name="email" placeholder="Type your email">
+                    </div>
+                    <div class="input">
+                        <button class="btn btn-primary text" id="button" type="submit">SUBSCRIBE NOW</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="dabba" id="footer">Hi</div>
+    </div>
+
+</body>
+
+</html>

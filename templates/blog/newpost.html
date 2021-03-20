@@ -1,0 +1,24 @@
+{% extends 'blogbase.html' %}
+
+{% block title %}New Post{% endblock title %}
+
+{% block body %}
+
+<form action="/blog/newpost/" method="post">
+    {% csrf_token %}
+    <div class="post">
+        <label for="title">Title</label>
+        <input type="text" class="title" id="title" name="title" placeholder="Title">
+        <label for="author">Author</label>
+        <input type="text" class="author" id="author" name="author" placeholder="Author">
+        <label for="content">Content</label>
+        <input type="text" class="content" id="content" name="content" placeholder="Content">
+        <label for="desc">Description</label>
+        <input type="text" class="desc" id="desc" name="desc" placeholder="Description">
+        <div class="input">
+            <button class="btn btn-primary text" id="button" type="submit">Submit</button>
+        </div>
+    </div>
+    
+</form>
+{% endblock body %}

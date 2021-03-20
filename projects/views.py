@@ -1,6 +1,9 @@
 from django.shortcuts import render, HttpResponse
 
 # Create your views here.
+def projects(request):
+    return render(request, 'resumeHome/projects.html')
+
 def websites(request):
     return render(request, 'resumeHome/projects/websites.html')
 

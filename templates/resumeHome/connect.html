@@ -10,7 +10,11 @@ Connect with me
 
 {% block body %}
 
-<div id="carouselExampleSlidesOnly" class="carousel slide mb-4" data-bs-ride="carousel">
+<div id="carouselExampleSlidesOnly" class="carousel slide mb-4" data-bs-ride="carousel" style="
+position: absolute;
+margin-top: -70px;
+z-index: 40;
+">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://source.unsplash.com/1600x500/?connect,phone" class="d-block w-100"
@@ -19,7 +23,7 @@ Connect with me
     </div>
 </div>
 
-<div class="container mb-4">
+<div class="container" style="position: relative; margin-top: 400px;">
     <h1 class="h1 mb-3">connect with me</h1>
     <form action="/connect/" method="post">
         {% csrf_token %}
@@ -46,7 +50,7 @@ Connect with me
             <textarea class="form-control" id="desc" name="desc" rows="5"></textarea>
         </div>
         <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">submit</button>
+            <button class="btn btn-primary mb-5" type="submit">submit</button>
         </div>
     </form>
 </div>

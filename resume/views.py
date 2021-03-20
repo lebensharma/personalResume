@@ -8,8 +8,7 @@ def home(request):
     return render(request, 'resumeHome/home.html')
 def about(request):
     return render(request, 'resumeHome/about.html')
-def projects(request):
-    return HttpResponse('This is Projects.')
+
 def connect(request):
     if request.method == "POST":
         sno = request.POST.get('sno')

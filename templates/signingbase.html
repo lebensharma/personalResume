@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="signingbase.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <title>signinupbase</title>
+    <style>
+        body {
+            background: #F6F3F3;
+        }
+
+        .text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.5vw;
+        }
+
+        .extremeouter {
+            background: #F6F3F3;
+            width: 100%;
+            height: 100%;
+            justify-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .outer {
+            position: relative;
+            width: 40vw;
+            height: 30vw;
+            background: white;
+            margin: auto;
+            margin-top: 7vw;
+            box-shadow: 0.1vw 0.1vw black;
+            /* border: 1px solid black; */
+        }
+
+        .inner {
+            position: relative;
+            margin: auto;
+            background: #5CE1E6;
+            width: 90%;
+            height: 86%;
+            top: 2.1vw;
+        }
+
+        .flexbox {
+            display: flex;
+        }
+
+        .actual {
+            position: relative;
+            height: 100%;
+            width: 60%;
+            vertical-align: middle;
+        }
+
+        .link {
+            position: relative;
+            height: 100%;
+            width: 40%;
+        }
+
+        .form {
+            position: relative;
+            width: 100%;
+            margin: auto;
+            margin-top: 15%;
+        }
+
+        form {
+            position: relative;
+            margin: auto;
+            padding: 2vw;
+
+        }
+
+        input {
+            background: white;
+            border: 0;
+            margin: 0.5vw;
+            left: 0.1vw;
+            padding: 0.3vw;
+        }
+
+        input:focus {
+            outline: 0.1vw solid #5CE1E6;
+        }
+        #button{
+            position: relative;
+            width: 100%;
+            padding: 0.3vw;
+            margin: auto;
+            /* margin: 0.5vw; */
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="extremeouter">
+        <div class="header"></div>
+        <div class="outer">
+            <div class="inner flexbox">
+                <div class="actual">
+                    <div class="form">
+                        <form action="/blog/otp/" method="post">
+                            <label for="fname" hidden>First Name</label>
+                            <input class="text" type="fname" id="fname" name="fname" placeholder="First Name">
+                            <label for="lname" hidden>Last Name</label>
+                            <input class="text" type="lname" id="lname" name="lname" placeholder="Last Name">
+                            <label for="email" hidden>Email</label>
+                            <input class="text" type="email" id="email" name="email" placeholder="Email">
+                            <button class="btn btn-primary text" id="button" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="link">
+                    <div class="text">Already a User?</div>
+                    <div class="text"><a href="/blog/login/">Login</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="foot"></div>
+    </div>
+</body>
+
+</html>

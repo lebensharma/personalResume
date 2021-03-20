@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects{% endblock title %}
+{% block projectsactive %}active{% endblock projectsactive %}
+
+{% block body %}
+<div class="container">
+        <div class="hangers d-flex">
+            <div class="letterhang" id="pro-1">p</div>
+            <div class="letterhang" id="pro-2">r</div>
+            <div class="letterhang" id="pro-3">o</div>
+            <div class="letterhang" id="pro-4">j</div>
+            <div class="letterhang" id="pro-5">e</div>
+            <div class="letterhang" id="pro-6">c</div>
+            <div class="letterhang" id="pro-7">t</div>
+            <div class="letterhang" id="pro-8">s</div>
+        </div>
+        <p>
+        <h3>Web Development Projects</h3>
+        </p>
+        <div class="d-flex my-4">
+
+            <div class="card flex-fill" style="width: 15rem;">
+                <a href="http://lebenism.in/">
+                    {% load static %}
+                    <img src="{% static 'img/resumesitelogo.png' %}" class="card-img-top" alt="logo1.png">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Portfolio</h5>
+                    <p class="card-text">This is my Portfolio Website. Details about me and my works are uploaded here.
+                    </p>
+                    <a href="http://lebenism.in/" class="btn btn-dark d-grid">Visit</a>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/emptylogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Blog</h5>
+                    <p class="card-text">This is my blog site. This is where anyone can make an account and publish
+                        their content. </p>
+                    <a href="/blog/" class="btn btn-dark d-grid">Visit</a>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/timerlogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">TimerClock</h5>
+                    <p class="card-text">This is a timer in reverse. It makes me complete my projects on time. Also my
+                        very first project.</p>
+                    <a href="#" class="btn btn-dark d-grid">Visit</a>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/emptylogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Lebenary</h5>
+                    <p class="card-text">Online personal library management system. For book-worms and book-enthusiasts.
+                    </p>
+                    <a href="#" class="btn btn-dark d-grid">Coming Up</a>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/emptylogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Ohm</h5>
+                    <p class="card-text">Indian social media. According to me, this is Indian Facebook which looks like
+                        Twitter.</p>
+                    <a href="#" class="btn btn-dark d-grid">Coming Up</a>
+                </div>
+            </div>
+        </div>
+        <p>
+        <h3>Game Development Projects</h3>
+        </p>
+        <div class="d-flex my-4">
+
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/game1logo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Pong</h5>
+                    <p class="card-text">A pygame project. The ball travels in the rectangle and is caught and rebounced
+                        by a block.</p>
+                    <a href="#" class="btn btn-dark d-grid">Visit</a>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/emptylogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Jump</h5>
+                    <p class="card-text">Save your player from cutters. They are everywhere. Rise to the top while
+                        jumping.</p>
+                    <a href="#" class="btn btn-dark disabled d-grid">Coming Up</a>
+                </div>
+            </div>
+            <div class="card flex-fill hidden" style="width: 15rem;">
+                <img src="{% static 'img/emptylogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body comingup">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-dark disabled d-grid">Visit</a>
+                </div>
+            </div>
+            <div class="card flex-fill hidden" style="width: 15rem;">
+                <img src="{% static 'img/emptylogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body comingup">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-dark disabled d-grid">Visit</a>
+                </div>
+            </div>
+            <div class="card flex-fill hidden" style="width: 15rem;">
+                <img src="{% static 'img/emptylogo.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-dark d-grid">Visit</a>
+                </div>
+            </div>
+        </div>
+        <p>
+        <h3>Graphic Design Projects</h3>
+        </p>
+        <div class="d-flex my-4">
+
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/7.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Fooddrive HOPE</h5>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                    <a href="#" class="btn btn-dark d-grid" data-bs-toggle="modal" data-bs-target="#oneModal">Expand</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="oneModal" tabindex="-1" aria-labelledby="oneModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Fooddrive HOPE</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{% static 'img/img2.png' %}" alt="IMAGE">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/8.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Clothe Donation</h5>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                    <a href="#" class="btn btn-dark d-grid" data-bs-toggle="modal" data-bs-target="#twoModal">Expand</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="twoModal" tabindex="-1" aria-labelledby="twoModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Donate your clothes</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{% static 'img/img3.png' %}" alt="IMAGE">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/9.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Independence Day</h5>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                    <a href="#" class="btn btn-dark d-grid" data-bs-toggle="modal"
+                        data-bs-target="#threeModal">Expand</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="threeModal" tabindex="-1" aria-labelledby="threeModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Independence Day</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{% static 'img/img4.png' %}" alt="IMAGE">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/10.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Saadat H. Manto</h5>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                    <a href="#" class="btn btn-dark d-grid" data-bs-toggle="modal"
+                        data-bs-target="#fourModal">Expand</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="fourModal" tabindex="-1" aria-labelledby="fourModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Saadat H. Manto</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{% static 'img/img6.png' %}" alt="IMAGE">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/11.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">Subhas Bose</h5>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                    <a href="#" class="btn btn-dark d-grid" data-bs-toggle="modal"
+                        data-bs-target="#fiveModal">Expand</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="fiveModal" tabindex="-1" aria-labelledby="fiveModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Subhas Chandra Bose</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{% static 'img/img5.png' %}" alt="IMAGE">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-fill" style="width: 15rem;">
+                <img src="{% static 'img/12.png' %}" class="card-img-top" alt="logo1.png">
+                <div class="card-body">
+                    <h5 class="card-title">P.L. Deshpande</h5>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                    <a href="#" class="btn btn-dark d-grid" data-bs-toggle="modal" data-bs-target="#sixModal">Expand</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="sixModal" tabindex="-1" aria-labelledby="sixModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">P.L. Deshpande</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{% static 'img/img1.png' %}" alt="IMAGE">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
