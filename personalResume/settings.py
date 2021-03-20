@@ -127,12 +127,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
-
-EMAIL_HOST = 'smtp.zoho.in'
-EMAIL_HOST_USER = 'contact@lebenism.in'
-EMAIL_HOST_USER_GREETINGS = 'greetings@lebenism.in'
-EMAIL_HOST_USER_SUPPORT = 'support@lebenism.in'
-EMAIL_HOST_PASSWORD = '@tANUMANUNANUANU_1998'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
