@@ -586,7 +586,8 @@
         <div class="hangingskills contactme" id="con-9">e</div>
     </div>
     <div class="telegram telegramtext">
-        <form>
+        <form action="/" method="post">
+        {% csrf_token %}
             <div class="flexbox" id="topdetails">
                 <label for="name" hidden>Name*</label>
                 <input type="text" id="name" name="name" placeholder="Your name (required)">
@@ -689,16 +690,16 @@
     <!-- hanging wire ends -->
 
     <!-- circles on hanging wire -->
-    <div class="circle" id="c1"><a href="mailto:aashu.0704@zohomail.in"><img src="{% static 'mail.png' %}" class="icons"
+    <div class="circle" id="c1"><a href="mailto:aashu.0704@zohomail.in"><img src="{% static 'img/mail.png' %}" class="icons"
                 alt="twitter"></a></div>
     <div class="circle" id="c2"><a href="https://www.hackerrank.com/lebensharma" target="_blank"><img
-                src="{% static 'hackerrank.png' %}" class="icon" alt="hackerrank"></a></div>
+                src="{% static 'img/hackerrank.png' %}" class="icon" alt="hackerrank"></a></div>
     <div class="circle" id="c3"><a href="https://www.linkedin.com/in/aashutosh-sharma-21098015a/" target="_blank"><img
-                src="{% static 'linkedin.png' %}" alt="linkedin" class="icon"></a></div>
-    <div class="circle" id="c4"><a href="https://twitter.com/lebensharma" target="_blank"><img src="{% static 'twitter.png' %}"
+                src="{% static 'img/linkedin.png' %}" alt="linkedin" class="icon"></a></div>
+    <div class="circle" id="c4"><a href="https://twitter.com/lebensharma" target="_blank"><img src="{% static 'img/twitter.png' %}"
                 alt="twitter" class="icons"></a></div>
     <div class="circle" id="c5"><a href="https://www.instagram.com/lebensharma/" target="_blank"><img
-                src="{% static 'instagram.png' %}" alt="instagram" class="icons"></a></div>
+                src="{% static 'img/instagram.png' %}" alt="instagram" class="icons"></a></div>
     <!-- circles end -->
 
     <!-- bush starts -->

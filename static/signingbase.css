@@ -1,0 +1,259 @@
+body{
+    background: #F6F3F3;
+    overflow: hidden;
+}
+/* corrections */
+.tick{
+    position: absolute;
+    width: 0.4vw;
+    height: 1vw;
+    border-right: 0.2vw solid black;
+    border-bottom: 0.2vw solid black;
+    transform: rotate(45deg);
+    top: 1vw;
+    left: 1vw;
+    z-index: 100;
+}
+#pwd{
+    top: 22.6vw;
+    left: 59vw;
+    opacity: 0;
+}
+#cnfpwd{
+    top: 25.5vw;
+    left: 59vw;
+    opacity: 0;
+}
+
+#less8{
+    position: absolute;
+    top: 22vw;
+    left: 59vw;
+    opacity: 1;
+    z-index: 50;
+    font-size: 1vw;
+    width: 7vw;
+    color: white;
+}
+
+
+
+
+
+.outer{
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* border: solid black; */
+}
+.inner{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%); */
+
+    
+}
+.left{
+    position: relative;
+    display: flex;
+    width: 20vw;
+    padding: 5vw;
+    border: 2vw solid white;
+    align-items: center;
+    justify-content: center;
+    background: #5CE1E6;
+    box-shadow: 0.1vw 0.1vw black;
+}
+.text{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.3vw;
+    padding: 0.2vw;
+}
+input{
+    box-sizing: border-box;
+    border: 0.3vw solid #5CE1E6;
+    background: white;
+    width: 17vw;
+    margin-bottom: 0.2px;
+}
+input:focus{
+    background: #F6F3F3;
+    outline: none;
+    border-radius: 0vw;
+}
+button{
+    outline: none;
+}
+
+#submit{
+    box-sizing: border-box;
+    border: 0.3vw solid #5CE1E6;
+    width: 17vw;
+    background: white;
+    color: black;
+    font-weight: bold;
+}
+.form{
+    display: block;
+    margin: auto;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+form{
+    display: inline-block;
+}
+
+.tabs{
+    position: absolute;
+}
+.header{
+    position: relative;
+    top: -34vw;
+    left: 45.5vw;
+    width: 0vw;
+    height: 0vw;
+    border-left: 30vw solid transparent;
+    border-right: 30vw solid transparent;
+    border-top: 45vw solid white;
+    z-index: 100;
+
+}
+.footer{
+    position: relative;
+    top: 34vw;
+    left: -45.5vw;
+    width: 0vw;
+    height: 0vw;
+    border-left: 30vw solid transparent;
+    border-right: 30vw solid transparent;
+    border-bottom: 45vw solid white;
+    z-index: 10000;
+
+}
+.header{
+    font-size: 3vw;
+}
+.header-text-signup{
+    position: absolute;
+    top: -10vw;
+    left: -4.5vw;
+}
+.header-text-login{
+    position: absolute;
+    top: -10vw;
+    left: -3.5vw;
+}
+
+.footer-text{
+    position: absolute;
+    top: 8vw;
+    left: -3.4vw;
+}
+.flexbox{
+    display: flex;
+}
+.message{
+    position: absolute;
+    right: 2vw;
+    top: 19vw;
+    padding: 1.5vw;
+    gap: 1.5vw;
+    color: white;
+    font-size: 1.5vw;
+}
+.close-success{
+    background: #31E648;
+    outline: none;
+    border: none;
+    font-size: 1.5vw;
+    color: white;
+}
+.close-error{
+    background: #EB2420;
+    opacity: 0.7;
+    outline: none;
+    border: none;
+    font-size: 1.5vw;
+    color: white;
+}
+.message-success{
+    background: #31E648;
+}
+.message-error{
+    background: #EB2420;
+    opacity: 0.7;
+}
+.connector{
+    position: absolute;
+    width: 1vw;
+    height: 40vw;
+    background: white;
+    top: -10vw;
+    left: 13vw;
+    z-index: -1;
+}
+@media only screen and (max-width: 900px) {
+    body {
+      background-color: lightblue; /*We will remove this*/
+    }
+    .outer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .inner{
+        position: inherit;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .left{
+        width: 80vw;
+        padding: 1vw;
+        margin-top: 41vw;
+        margin-bottom: 41vw;
+    }
+    .text{
+        font-size: 5vw;
+        padding: 1vw;
+    }
+    input{
+        width: 50vw;
+        margin-bottom: 1vw;
+    }
+    #submit{
+        width: 50vw;
+    }
+    .header{
+        /* position: absolute; */
+        visibility: hidden;
+    }
+    .footer{
+        visibility: hidden;
+    }
+    .form{
+        display: block;
+        margin: auto;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        width: 100vw;
+    }
+}

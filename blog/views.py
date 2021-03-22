@@ -1,9 +1,12 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import redirect, render, HttpResponse, reverse
 from blog.models import Post, Signup
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail, send_mass_mail, EmailMessage
 from django.conf import settings
 from blog.models import Signup
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def blogHome(request):
@@ -12,6 +15,13 @@ def blogHome(request):
     if request.method == "POST":
         sno = request.POST.get('sno')
         email = request.POST.get('email')
+
+        # checks
+        if len(email) <= 5:
+            messages.error(request, "Please type correct email!")
+            return redirect('home')
+
+
         signup = Signup(sno=sno, email=email)
         signup.save()
         messages.success(request, "Thank you for signing up. You will recieve notifications on the given email.")
@@ -30,10 +40,12 @@ def viewPost(request, slug):
     return render(request, 'blog/post.html', context)
 
 def blogLogin(request):
-    return HttpResponse("Login page of blog")
-def blogSignup(request):
-    return HttpResponse("Signup page of blog")
+    return render(request, 'blog/loginBlog.html')
+def blogLogout(request):
+    return HttpResponse("Logout page of blog")
 
+
+@login_required(redirect_field_name='error')
 def blogNewPost(request):
     if request.method == "POST":
         sno = request.POST.get('sno')
@@ -54,6 +66,73 @@ def blogNewPost(request):
 
     return render(request, "blog/newpost.html")
 
-
+@login_required
 def blogUserEdit(request):
     return HttpResponse("Edit details of user here")
+
+def signup(request):
+    return render(request, "blog/signupBlog.html")
+
+def handleSignup(request):
+    if request.method == 'POST':
+        # get the post parameters
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        username = request.POST['username']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+
+        # Checks
+        if len(username) > 15:
+            messages.error(request, "Username must be under 15 characters")
+            return redirect('signup')
+        if not username.isalnum():
+            messages.error(request, "Username must contain only letters and numbers")
+            return redirect('signup')
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match")
+            return redirect('signup')
+        if len(password) < 8:
+            messages.error(request, "Password must be of more than 8 characters")
+            return redirect('signup')
+
+
+        # Create the user
+        myuser = User.objects.create_user(username, email, password)
+        myuser.first_name = fname
+        myuser.last_name = lname
+        myuser.save()
+        messages.success(request, "Your account is created!")
+        return redirect('home')
+
+    else:
+        return HttpResponse('<h1>404</h1>')
+
+def handleLogin(request):
+    if request.method == 'POST':
+        # get the post parameters
+        loginusername = request.POST['loginusername']
+        loginpassword = request.POST['loginpassword']
+
+        user = authenticate(username=loginusername, password=loginpassword)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
+        else:
+            messages.error(request, "Invalid Credentials, Please try again.")
+            return redirect('login')
+
+
+def handleLogout(request):
+    logout(request)
+    messages.success(request, "Sucessfully Logged out!")
+    return redirect('home')
+
+def forgot(request):
+    return render(request, 'blog/forgot.html')
+
+# def handleForgot(request):
+#     if request.method == 'POST':

@@ -5,73 +5,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     {% load static %}
-    <link rel="stylesheet" href="{% static 'blog.css' %}">
+    <link rel="stylesheet" href="{% static 'blogbase.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="icon" href="{% static 'logo1.png' %}" type="image/icon type">
-    <title>{% block title %}{% endblock title %} | Lebenism</title>
 
-    <script>
-        function validateForm() {
-            var x = document.forms["signupform"]["email"].value;
-            if (x == "" || x == null) {
-                alert("Please type your email!");
-                return false;
-            }
-        }
-    </script>
+    <title>{% block title %}{% endblock title %} | Lebenism</title>
 </head>
 
 <body>
-    <div class="flex-container">
+    <div class="flex-container text">
         <div class="dabba" id="left">
-            <div id="logo">
+            <div id="logo1">
                 {% load static %}
-                <img src="{% static 'logo1.png' %}" alt="logo">
+                <img src="{% static 'logo1.png' %}" alt="logo" id="logo">
             </div>
             <div class="index">
-                <div class="text indexing" id="index-1"><a href="/blog/">Home</a></div>
+                <div class="text indexing" id="index-1">Home</div>
                 <div class="text indexing" id="index-2">Categories</div>
                 <div class="text indexing" id="index-3">Most Visited</div>
-                <div class="text indexing" id="index-4"><a href="/">My Website</a></div>
+                <div class="text indexing" id="index-4">My Website</div>
                 <div class="text indexing" id="index-5">Contact</div>
             </div>
             <div class="aboutme">
                 <div class="img"></div>
-                <div class="name text">Aashutosh Sharma</div>
-                <div class="mydescript text">Writes on matters related to national security, media management, politics.
-                    Dharmo Rakshati Rakshitah!</div>
+                <div class="name">Aashutosh Sharma</div>
+                <div class="authordescript">Writes on matters related to national security, media management, politics.
+                    Dharmao Rakshati Rakshitah!</div>
             </div>
         </div>
         <div class="dabba" id="center">
-            <div class="heading" id="heading">Leben's Blog</div>
-            <div class="flexbox">
-                {% block body %} {% endblock body %}
+            <div class="heading headingtext" id="heading">Leben's Blog</div>
+            <div class="postflex">
+                {% block body %}{% endblock body %}
             </div>
         </div>
         <div class="dabba" id="right">
-            <form action="/blog/" name="signupform" onsubmit="return validateForm()" method="post" required>
-                {% csrf_token %}
-                <div id="signup-form">
-                    <div class="text" id="signup">Sign up</div>
-                    <div class="text" id="signupdesc">Sign up to receive an update whenever I post something. Also
-                        notify if you want to receive weekly newsletters.</div>
-                    <div class="input">
-                        <label for="email" hidden>Email</label>
-                        <input class="text" type="email" id="email" name="email" placeholder="Type your email">
+            {% if user.is_authenticated %}
+
+            <div class="logoutdropdown btn">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <button class="logoutdrop btn text margin-btn" onclick="return dropdown()" id="logoutdropping">Welcome,
+                        {{request.user.first_name}} <span id="arrow">&#9660;</span></button>
+
+                </a>
+                <div class="dropdown-menu dropdown-flex" aria-labelledby="navbarDropdown" id="dropdownlogout">
+                    <div class="drop" id="drop-1">
+                    <span id="userimage"></span>
+                    <span id="userdetails"><div id="user_name"><span>{{request.user.first_name}}
+                                </span><span>{{request.user.last_name}}</span></a></div>
+                        <div id="user_email">{{request.user.email}} </a></div></span>
+                        
                     </div>
-                    <div class="input">
-                        <button class="btn btn-primary text" id="button" type="submit">SUBSCRIBE NOW</button>
+                    <div class="drop" id="drop0">
+                        <div><a class="dropdown-item" href="/blog/newpost/">New Post</a></div>
+                    </div>
+                    <div class="drop" id="drop1">
+                        <div><a class="dropdown-item" href="#">Account Settings</a></div>
+                        <div><a class="dropdown-item" href="#">Get help</a></div>
+                    </div>
+                    <div class="drop" id="drop2">
+                        <a class="dropdown-item" href="/blog/logout">Logout</a>
                     </div>
                 </div>
-            </form>
-        </div>
-        <div class="dabba" id="footer">Hi</div>
-    </div>
+            </div>
 
+            {% else %}
+            <div class="loginsignup flexbox">
+                <div class="btn" id="login">
+                    <a href="/blog/login/" class="text">
+                        <button class="btn btn-primary text" id="loginbutton">Login</button>
+                    </a>
+                </div>
+                <div class="btn" id="signup">
+                    <a href="/blog/signup/" class="text">
+                        <button class="btn btn-primary text" id="signupbutton">Signup</button>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="messages message-flex">
+                {% for message in messages %}
+                <div class="me">
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    <button type="button" class="close" onclick="this.parentElement.style.display = 'none';"
+                        data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="subscribeform margin-subscribe">
+                <form action="/blog/" name="subscribeform" method="post" required>
+                    {% csrf_token %}
+                    <div id="subscribeform">
+                        <div class="text" id="subscribe">Subscribe</div>
+                        <div class="text" id="signupdesc">Enter your email to receive an update whenever I post
+                            something. Also
+                            notify if you want to receive weekly newsletters.</div>
+                        <div class="input" id="inputemail">
+                            <label for="email" hidden>Email</label>
+                            <input class="text" type="email" id="email" name="email" placeholder="Type your email">
+                        </div>
+                        <div class="input">
+                            <button class="btn btn-primary text button" id="button-subscribe" type="submit">SUBSCRIBE
+                                NOW</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer">Hi</div>
+    {% load static %}
+    <script src="{% static 'blogHome.js' %}"></script>
 </body>
 
 </html>

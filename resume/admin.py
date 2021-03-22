@@ -1,5 +1,5 @@
 from django.contrib import admin
-from resume.models import Connect
+from resume.models import Contact
 
 # Register your models here.
-admin.site.register(Connect)
+admin.site.register(Contact)

@@ -1,0 +1,23 @@
+{% extends 'signingbase.html' %}
+
+{% block title %}Blog Login{% endblock title %}
+
+{% block signinglogin %}LogIn{% endblock signinglogin %}
+
+{% block body %}
+<form action="/blog/handlelogin/" method="post">
+    {% csrf_token %}
+    <label for="loginusername" hidden>Username</label>
+    <input type="loginusername" id="loginusername" class="text" name="loginusername" placeholder="Type your username" required>
+    <label for="loginpassword" hidden>Password</label>
+    <input type="password" id="loginpassword" class="text" name="loginpassword" placeholder="Type your password" required>
+    <button type="submit" class="text" id="submit">Submit</button>
+</form>
+<div class="text form">
+    Not a user? <a href="/blog/signup">Signup</a>
+</div>
+<div class="text form">
+    <a href="/blog/forgot/">Forgot password?</a>
+</div>
+
+{% endblock body %}

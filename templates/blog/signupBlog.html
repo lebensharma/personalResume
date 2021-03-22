@@ -1,0 +1,27 @@
+{% extends 'signingbase.html' %}
+
+{% block title %}Blog Signup{% endblock title %}
+
+{% block signingsignup %}Signup{% endblock signingsignup %}
+
+{% block body %}
+<form action="/blog/handlesignup/" method="post">
+    {% csrf_token %}
+    <label for="fname" hidden>First Name</label>
+    <input type="text" id="fname" class="text" name="fname" placeholder="First name" required>
+    <label for="lname" hidden>Last Name</label>
+    <input type="text" id="lname" class="text" name="lname" placeholder="Last name" required>
+    <label for="email" hidden>Email</label>
+    <input type="email" id="email" class="text" name="email" placeholder="Email" required>
+    <label for="username" hidden>Username</label>
+    <input type="username" id="username" class="text" name="username" placeholder="Username" required>
+    <label for="password" hidden>Password</label>
+    <input type="password" id="password" class="text" name="password" placeholder="Password" required>
+    <label for="password" hidden>Confirm Password</label>
+    <input type="password" id="confirm_password" class="text" name="confirm_password" placeholder="Confirm password" required>
+    <button type="submit" class="text" id="submit">Submit</button>
+</form>
+<div class="text form">
+    Already a user? <a href="/blog/login">Login</a>
+</div>
+{% endblock body %}

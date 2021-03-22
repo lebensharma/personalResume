@@ -33,14 +33,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'resume.apps.ResumeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    'resume',
+    'phone_field'
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,6 @@ EMAIL_HOST_PASSWORD = '@tANUMANUNANUANU_1998'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# login url if user not authenticated
+LOGIN_URL = '/blog/login/'
