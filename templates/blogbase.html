@@ -7,16 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'blogbase.css' %}">
+    <link rel="icon" href="{% static 'logo1.png' %}" type="image/icon type">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 
     <title>{% block title %}{% endblock title %} | Lebenism</title>
+    {% load static %}
+    <script src="{% static 'blogHome.js' %}"></script>
 </head>
 
 <body>
     <div class="flex-container text">
-        <div class="dabba" id="left">
+        <div class="dabba" id="left" style="left: -35vw;">
             <div id="logo1">
                 {% load static %}
                 <img src="{% static 'logo1.png' %}" alt="logo" id="logo">
@@ -36,8 +39,29 @@
             </div>
         </div>
         <div class="dabba" id="center">
-            <div class="heading headingtext" id="heading">Leben's Blog</div>
-            <div class="postflex">
+            <div class="heading headingtext" id="heading">
+                {% load static %}
+                <span id="ham" onclick="return pullLeft()">
+                    <img src="{% static 'img/ham1.png' %}" alt="">
+                </span>
+                <span id="blogheading">Leben's Blog</span>
+                {% load static %}
+                <span id="key">
+                    {% if user.is_authenticated %}
+                    <span id="authnameinit" class="text" onclick="return drop()">
+                    {{request.user.first_name | make_list | first}}{{request.user.last_name | make_list | first}}
+                    </span>
+                    {% else %}
+                    <span>
+                    <a href="/blog/login/">
+                        <img src="{% static 'img/key.png' %}" alt="Key">
+                    </a>
+                    </span>
+                    {% endif %}
+                </span>
+            </div>
+
+            <div class="postflex" onclick="return pushLeft()">
                 {% block body %}{% endblock body %}
             </div>
         </div>
@@ -45,13 +69,13 @@
             {% if user.is_authenticated %}
 
             <div class="logoutdropdown btn">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <button class="logoutdrop btn text margin-btn" onclick="return dropdown()" id="logoutdropping">Welcome,
                         {{request.user.first_name}} <span id="arrow">&#9660;</span></button>
 
                 </a>
-                <div class="dropdown-menu dropdown-flex" aria-labelledby="navbarDropdown" id="dropdownlogout">
+                <div class="dropdown-menu dropdown-flex" aria-labelledby="navbarDropdown" id="dropdownlogout" style="z-index: -5; opacity = 0;">
                     <div class="drop" id="drop-1">
                     <span id="userimage"></span>
                     <span id="userdetails"><div id="user_name"><span>{{request.user.first_name}}
@@ -60,7 +84,12 @@
                         
                     </div>
                     <div class="drop" id="drop0">
-                        <div><a class="dropdown-item" href="/blog/newpost/">New Post</a></div>
+                        <div>{% if request.user.is_superuser %}
+                            <a class="dropdown-item" href="/blog/newpost/">New Edit</a>
+                            {% else %}
+                            <a class="dropdown-item" href="/blog/newedit/">New Post</a>
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="drop" id="drop1">
                         <div><a class="dropdown-item" href="#">Account Settings</a></div>
@@ -86,7 +115,7 @@
                 </div>
             </div>
             {% endif %}
-            <div class="messages message-flex">
+            <div class="messages message-flex" id="message-flex">
                 {% for message in messages %}
                 <div class="me">
                     <div class="alert alert-{{ message.tags }}">
@@ -97,14 +126,14 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
             <div class="subscribeform margin-subscribe">
                 <form action="/blog/" name="subscribeform" method="post" required>
                     {% csrf_token %}
                     <div id="subscribeform">
-                        <div class="text" id="subscribe">Subscribe</div>
-                        <div class="text" id="signupdesc">Enter your email to receive an update whenever I post
+                        <div class="text subscribe" id="subscribe1">Subscribe</div>
+                        <div class="text signupdesc" id="signupdesc1">Enter your email to receive an update whenever I post
                             something. Also
                             notify if you want to receive weekly newsletters.</div>
                         <div class="input" id="inputemail">
@@ -112,17 +141,79 @@
                             <input class="text" type="email" id="email" name="email" placeholder="Type your email">
                         </div>
                         <div class="input">
-                            <button class="btn btn-primary text button" id="button-subscribe" type="submit">SUBSCRIBE
+                            <button class="btn btn-primary text button button-subscribe" id="button-subscribe1" type="submit">SUBSCRIBE
                                 NOW</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        <div class="dabba" id="bottom">
+            <form action="/blog/" name="subscribeform" method="post" required>
+                {% csrf_token %}
+                <div id="subscribeform">
+                    <div class="text subscribe" id="subscribe2">Subscribe</div>
+                    <div class="text signupdesc" id="signupdesc2">Enter your email to receive an update whenever I post
+                        something. Also
+                        notify if you want to receive weekly newsletters.</div>
+                    <div class="input" id="inputemail">
+                        <label for="email" hidden>Email</label>
+                        <input class="text inp_button" type="email" id="email" name="email" placeholder="Type your email">
+                    </div>
+                    <div class="input">
+                        <button class="btn btn-primary text button button-subscribe" id="bn" type="submit">SUBSCRIBE
+                            NOW</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="footer" id="footer">Hi</div>
-    {% load static %}
-    <script src="{% static 'blogHome.js' %}"></script>
+    {% if user.is_authenticated %}
+    <div class="mdrop text" id="mdrop" style="opacity: 0; z-index: -5;">
+        <div class="set" id="set">{% if request.user.is_superuser %}<a href="/blog/newpost/">New Edit</a>{% else %}<a href="/blog/newedit/">New Post</a>{% endif %}</div>
+        <div class="set" id="set">Account Settings</div>
+        <div class="help" id="help">Get help</div>
+        <div class="mlogout" id="mlogout"><a href="/blog/logout">Logout</a></div>
+    </div>
+    {% endif %}
+
+
+
+    
+    <div class="neweditpencil" id="neweditpencil">
+        {% if request.user.is_superuser %}
+        {% load static %}
+        <a href="/blog/newpost/">
+        <img src="{% static 'img/pencil.png' %}" alt="pencil">
+        </a>
+        {% elif user.is_authenticated %}
+        <a href="/blog/newedit/">
+        <img src="{% static 'img/pencil.png' %}" alt="pencil">
+        </a>
+        {% else %}
+        <a href="/blog/login/">
+        <img src="{% static 'img/pencil.png' %}" alt="pencil">
+        </a>
+    </div>
+    {% endif %}
+    
+    <div class="message-flash" id="message-flash1">
+        {% for message in messages %}
+        <div class="me text">
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            <button type="button" class="close" onclick="this.parentElement.style.display = 'none';"
+                data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    
+    
 </body>
 
 </html>

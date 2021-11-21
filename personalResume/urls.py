@@ -13,8 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from os import stat
 from django.contrib import admin
 from django.urls import path, include
+
+from django.conf.urls.static import static
+from django.conf import settings
 
 admin.site.site_header = "Leben Sharma Resume Admin"
 admin.site.site_title = "Leben Sharma Resume Admin Portal"
@@ -23,5 +27,7 @@ admin.site.index_title = "Welcome to Leben's Resume"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('resume.urls')),
-    path('blog/', include('blog.urls')),
+    path('blog/', include('blogger.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root =  settings.MEDIA_ROOT)

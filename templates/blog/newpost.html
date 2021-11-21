@@ -1,24 +1,47 @@
-{% extends 'blogbase.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}New Post{% endblock title %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post | Blog | Lebenism</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'newpost.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+</head>
 
-{% block body %}
-
-<form action="/blog/newpost/" method="post">
+<body>
+    <form action="/blog/newpost/" method="post">
     {% csrf_token %}
-    <div class="post">
-        <label for="title">Title</label>
-        <input type="text" class="title" id="title" name="title" placeholder="Title">
-        <label for="author">Author</label>
-        <input type="text" class="author" id="author" name="author" placeholder="Author">
-        <label for="content">Content</label>
-        <input type="text" class="content" id="content" name="content" placeholder="Content">
-        <label for="desc">Description</label>
-        <input type="text" class="desc" id="desc" name="desc" placeholder="Description">
-        <div class="input">
-            <button class="btn btn-primary text" id="button" type="submit">Submit</button>
+    <div class="outer text flex">
+        <div class="inner" id="inner1">
+            <div class="header">New Post</div>
+            <div class="context">
+
+                <label for="title" hidden>Title</label>
+                <textarea rows="1" class="text" type="text" name="title" id="title" placeholder="Title"></textarea>
+                <label for="content" hidden>Content</label>
+                <textarea class="text" name="content" id="content" cols="30" rows="10" autocapitalize="sentences"
+                    wrap="hard" placeholder="Content here. Press double enter to start a new paragraph."></textarea>
+                Upload your thumbnail.
+                <label for="author" hidden>Author</label>
+                <input type="text" id="author" name="author" placeholder="author">
+                <input type="file" class="text" name="thimage" id="thimage" value="Choose your thumbnail">
+
+            </div>
         </div>
+        <div class="inner" id="inner2"></div>
     </div>
-    
-</form>
-{% endblock body %}
+    <div class="innerfixed" id="inner3">
+
+        <button type="submit" class="publish text">Publish</button>
+        <button type="button" class="publish text" id="savedraft">Save Draft</button>
+
+    </div>
+    </form>
+
+</body>
+
+</html>

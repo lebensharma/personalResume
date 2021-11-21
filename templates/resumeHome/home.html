@@ -13,10 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
     <script src="{% static 'resumehome.js' %}"></script>
     <link rel="icon" href="{% static 'logo1.png' %}" type="image/icon type">
+    
     <title>Aashutosh Sharma | Lebenism</title>
 </head>
 
 <body>
+    <div class="cover"></div>
     <!-- branch starts -->
     <div id="b995" class="branch"></div>
     <div id="b996" class="branch"></div>
@@ -550,30 +552,22 @@
             <div class="hangingskills blog-heading" id="blog-g">g</div>
         </div>
     </a>
-    <div class="blogpost flexbox" id="post-1">
-        <div class="imageblogpost" id="div-1"></div>
-        <div class="details" id="div-2">
-            <div class="titleblog">Title</div>
-            <div class="authorblog">By Author</div>
-            <div class="descblog">Description</div>
+    
+    <div class="runningblogposts">
+        {% for post in posts %}
+        <a href="/blog/post/{{post.slug}}">
+        <div class="blogpost flexbox" id="post-{{ forloop.counter }}">
+            <div class="imageblogpost"></div>
+            <div class="details" id="div-2">
+                <div class="titleblog">{{post.title}}</div>
+                <div class="authorblog">{{post.author}}</div>
+                <div class="descblog">{{post.time_stamp}} </div>
+            </div>
         </div>
+        </a>
+        {% endfor %}
     </div>
-    <div class="blogpost flexbox" id="post-2">
-        <div class="imageblogpost" id="div-1"></div>
-        <div class="details" id="div-2">
-            <div class="titleblog">Title</div>
-            <div class="authorblog">By Author</div>
-            <div class="descblog">Description</div>
-        </div>
-    </div>
-    <div class="blogpost flexbox" id="post-3">
-        <div class="imageblogpost" id="div-1"></div>
-        <div class="details" id="div-2">
-            <div class="titleblog">Title</div>
-            <div class="authorblog">By Author</div>
-            <div class="descblog">Description</div>
-        </div>
-    </div>
+    
     <div id="contact" class="text flexbox">
         <div class="hangingskills contactme" id="con-1">c</div>
         <div class="hangingskills contactme" id="con-2">o</div>

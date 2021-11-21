@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Edit | Blog | Lebenism</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'newpost.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <form action="/blog/newblogedit/" method="post">
+        {% csrf_token %}
+        <div class="outer text flex">
+            <div class="inner" id="inner1">
+                <div class="header">New Post</div>
+                <div class="context">
+                
+                    <label for="posttitle" hidden>Title</label>
+                    <textarea rows="1" class="text" type="text" name="posttitle" id="title"
+                        placeholder="Title"></textarea>
+                    <label for="postauthor">Author</label>
+
+                    <textarea class="text" name="postauthor" id="postauthor" cols="30" rows="1">{{ request.user.first_name }} {{ request.user.last_name }}</textarea>
+                    <label for="postcontent" hidden>Content</label>
+                    <textarea class="text" name="postcontent" id="content" cols="30" rows="10"
+                        autocapitalize="sentences" wrap="hard"
+                        placeholder="Content here. Press double enter to start a new paragraph."></textarea>
+                    Upload your thumbnail.
+                    <input type="file" class="text" name="postimg" id="thimage" value="Choose your thumbnail">
+                
+                </div>
+            </div>
+            <div class="inner" id="inner2"></div>
+        </div>
+        <div class="innerfixed" id="inner3">
+
+            <button type="submit" class="publish text">Publish</button>
+            <button type="button" class="publish text" id="savedraft">Save Draft</button>
+
+        </div>
+    </form>
+
+</body>
+
+</html>

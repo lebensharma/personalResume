@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+    'blogger',
     'resume',
-    'phone_field'
+    'phone_field',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +138,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # login url if user not authenticated
 LOGIN_URL = '/blog/login/'
+MEDIA_URL = '/editsimg/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/editsimg')

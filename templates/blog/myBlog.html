@@ -8,9 +8,9 @@ Blog
 {% for post in allPosts %}
 <div class="post">
     <div class="aboutpost">
-        <div class="title text">{{post.title}}</div>
+        <div class="title text" id="post-title">{{post.title}}</div>
         <div class="author text">By {{post.author}}</div>
-        <div class="description text">{{post.desc}}</div>
+        <div class="author text">At {{ post.time_stamp }}</div>
         <div class="view"><a href="post/{{post.slug}}" class="btn"><button>View</button></a></div>
     </div>
 </div>

@@ -3,6 +3,15 @@ body{
     overflow-x: hidden;
     max-width: 100%;
 }
+.cover{
+    position: absolute;
+    background: #5CE1E6;
+    width: 41vw;
+    height: 342vw;
+    top: 0vw;
+    left: 100vw;
+    z-index: 10000000;
+}
 
 /* tree branches */
 .branch {
@@ -2602,14 +2611,20 @@ a::after.projectslinked{
 .details{
     font-family: 'Fredoka One', cursive;
 }
+.runningblogposts{
+    text-decoration: none;
+}
 .titleblog{
-    font-size: 2vw;
+    font-size: 2.5vw;
+    color: #5D3B00;
 }
 .authorblog{
-    font-size: 0.8vw;
+    font-size: 1.5vw;
+    color: #7D4F00;
 }
 .descblog{
     font-size: 1vw;
+    color: #9B6201;
 }
 #letter16{
     height: 20vw;

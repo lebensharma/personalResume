@@ -58,3 +58,19 @@ h3{
     opacity: 0.9;
 
 }
+
+@media screen and (max-width: 600px) {
+    .hangers{
+        font-size: 28vw;
+    }
+    .letterhang{
+        background: #F2F4EF;
+        border-top: 4vw solid #030305;
+        margin-top: 3vw;
+        width: 19vw;
+        text-align: center;
+        box-shadow: 0.1vw 0.1vw 2.5vw black;
+        color: #030305;
+    }
+
+}

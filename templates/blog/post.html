@@ -5,7 +5,9 @@
 {% endblock title %}
 
 {% block body %}
+<div class="postingflex">
 <div class="title">{{post.title}}</div>
-<div class="date">{{post.author}}</div>
-<div class="content">{{post.content}}</div>
+<div class="date"><div>{{post.time_stamp}}</div><div>By, {{post.author}}</div></div>
+<div class="content">{{post.content | safe}}</div>
+</div>
 {% endblock body %}
